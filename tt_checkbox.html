@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Checkboxes</title>
+
+		<style>
+
+			.checkbox_wrapper
+			{
+				cursor:pointer;
+			}
+
+			.checkbox_wrapper label
+			{
+				font-size:16px;
+				margin-left:1em;
+			}
+
+			.checkbox_wrapper input
+			{
+				display:none;
+			}
+
+			.checkbox
+			{
+				width:20px;
+				height:20px;
+				border-radius:3px;
+				border:1px solid #444444;				
+				float:left;
+			}
+
+			.checkbox span
+			{
+				display:inline-block;
+				width:100%;
+				text-align: center;
+				font-size:1em;
+				color:#44FF44;
+				font-weight:bold;
+			}
+
+			.checkbox.off span
+			{
+				display:none;
+			}
+
+			.checkbox.on span
+			{	
+				display:inline-block;
+			}
+		</style>
+
+		<script>
+			function checkbox(id)
+			{
+				var cb = document.getElementById(id + "_checkbox");
+
+				if (cb.className=="checkbox on")
+				{
+					cb.className = "checkbox off";
+					document.getElementById(id).checked = false;
+				}
+				else
+				{
+					cb.className = "checkbox on";
+					document.getElementById(id).checked = true;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="checkbox_wrapper" onclick="checkbox('cbPrint')">
+			<div class="checkbox on" id="cbPrint_checkbox">
+				<span>&#10004;</span>
+			</div>
+			<label for="cbPrint">Print</label>
+			<input type="checkbox" name="cbPrint" id="cbPrint" value="print" checked>
+		</div>
+
+		<br />
+
+		<div class="checkbox_wrapper" onclick="checkbox('cbEmail')">
+			<div class="checkbox off"  id="cbEmail_checkbox">
+				<span>&#10004;</span>
+			</div>
+			<label for="cbEmail">Email</label>
+			<input type="checkbox" name="cbEmail" id="cbEmail" value="email">
+		</div>
+	</body>
+</html>
